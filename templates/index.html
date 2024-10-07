@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Instance Explorer</title>
+{% endblock %}
+
+
+{% block body %}
+<div>
+    <h1>Instance Explorer</h1>
+    <form method="post">
+        <label for="instance">Instance</label>
+        <input name="instance" id="instance" type="text"></input>
+        <input type="submit" value="Search Instance"></input>
+    </form>
+</div>
+{% endblock %}
