@@ -15,10 +15,10 @@ def index():
     if request.method == 'POST':
         instance = request.form['instance']
         api_string = f'https://{instance}/api/v1/timelines/public'
-        #timeline = requests.get(api_string)
-        #dict_timeline = json.loads(timeline)
-        #print(api_string)
-        #print(dict_timeline)
+        timeline = requests.get(api_string)
+        dict_timeline = json.loads(timeline.text)
+        breakpoint()
+        print(dict_timeline)
         return redirect('/')
     
     else:
