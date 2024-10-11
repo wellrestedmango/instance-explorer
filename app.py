@@ -17,7 +17,7 @@ def index():
         timeline = requests.get(api_string)
         dict_timeline = json.loads(timeline.text)
         breakpoint()
-        print(dict_timeline)
+        print(type(dict_timeline))
         return redirect('/')
     
     else:
