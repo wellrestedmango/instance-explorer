@@ -6,6 +6,12 @@ from flask import request
 from flask import redirect
 import requests
 import json
+import pandas as pd
+import sqlalchemy
+from sqlalchemy import create_engine
+
+#engine = create_engine('sqlite:///posts.db', echo=True)
+#sqlite_connection = engine.connect()
 
 
 app = Flask(__name__)
@@ -16,8 +22,11 @@ def index():
         api_string = f'https://{instance}/api/v1/timelines/public'
         timeline = requests.get(api_string)
         dict_timeline = json.loads(timeline.text)
-        breakpoint()
-        print(type(dict_timeline))
+        dict_timeline_normalized = pd.json_normalize(dict_timeline)
+        for key in dict_timeline_normalized:
+            print(type(key), key)        
+        #sqlite_table = "posts"
+        #dict_timeline_normalized.to_sql(sqlite_table, sqlite_connection, if_exists='replace')
         return redirect('/')
     
     else:
