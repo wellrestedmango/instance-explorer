@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Instance Explorer</title>
+{% endblock %}
+
+
+{% block body %}
+<div>
+    <h1>Public timeline</h1>
+    {% for i in range(data['content']|length) %}
+        <div>
+            {% for key, values in data.items() %}
+                {% if i < values|length %}
+                    <p>{{ key }}: {{ values[i] }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}
+</html>
