@@ -25,9 +25,7 @@ function apiCall(instance){
 function createView(posts){
     console.log(posts);
 
-    for (let post in posts){
-        console.log(posts[post]['account'].acct);
-
+    for (let post in posts){  
         postElement.innerHTML = `<header>${posts[post]['account'].acct}</header>
         <p>${posts[post]['content']}</p>`;
         postCardHolder.appendChild(postElement.cloneNode(true));
