@@ -6,21 +6,38 @@
 		<meta mame="color-scheme" content="dark">
 		<link rel="stylesheet" href="css/pico.min.css">
 		<title>Instance Explorer</title>
+		<style>
+			header {
+				--pico-padding: 1em;
+			}
+		</style>
 	</head>
 	<body>
 		<main class="container-fluid">
 			<div class="grid">
-				<div>Testing</div>
-				<div>Testing 2</div>
+				<div>
+					<card>
+						<header>
+							<p>Welcome to Instance Explorer</p>
+						</header>
+						<p>Please enter the instance that you want to explore in the box below and hit search to view their local feed!</p>
+					</card>
+					<form id="instance_selection" onsubmit="formCollect(event)">
+						<fieldset role="group">
+							<input type="text" id="instance" placeholder="instance name here">
+							<button type="submit">Search</button>
+						</fieldset>
+					</form>
+					<details name="why">
+						<summary class="secondary" role="button">Why make this?</summary>
+						<p>Your Mastodon experience is highly dependant on the server you join. Connectedness is very important in the Fediverse. When you first start, you will be dependant on your local feed to find people and content to follow.</p>
+						<p>This tool will help you explore the local feed for any Mastodon instance. You should see if the posts are interesting to you, and then look into the servers you like more on their own sites!</p>
+					</details>
+				</div>
+				<div id="card-holder">
+				</div>
 			</div>
 		</main>
-		<div>Testing</div>
-		<div>
-			<form id="instance_selection" onsubmit="formCollect(event)">
-				<input type="text" id="instance" default="instance name here">
-				<button type="submit">Search</button>
-			</form>
-		</div>
 	<script src="source/script.js"></script>
 	</body>
 </html>
