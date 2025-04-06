@@ -67,7 +67,9 @@ function createPostView(posts){
     postCardHolder.innerHTML = '';
 
     for (let post in posts){  
-        postElement.innerHTML = `<header>${posts[post]['account'].acct}</header>
+
+        let avatar = posts[post]['account']['avatar_static']; 
+        postElement.innerHTML = `<header><img src="${avatar}" width="75rem" height="75rem" class="pico-border-radius">${posts[post]['account'].acct}</header>
         <p>${posts[post]['content']}</p>`;
         postCardHolder.appendChild(postElement.cloneNode(true));
 
@@ -98,3 +100,4 @@ function createInstanceInformationView(data){
     instanceInformation.innerHTML += `<p>User count: ${data['stats']['user_count']}</p>`;
     instanceInformation.removeAttribute('hidden');
 }
+
