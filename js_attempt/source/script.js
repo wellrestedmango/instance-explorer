@@ -23,7 +23,7 @@ function apiCall(instance){
     currentInstanceMessage.removeAttribute('hidden');
     currentInstanceMessage.innerText = `Your current instance is: ${currentInstance}`;
 
-    const postQueryString = `https://${instance}/api/v1/timelines/public?limit=50`;
+    const postQueryString = `https://${instance}/api/v1/timelines/public?limit=100`;
     fetch(postQueryString)
     .then (response => {
             if (!response.ok){
@@ -83,6 +83,9 @@ function createPeerView(peers){
     peerHolder.innerHTML = '';
 
     peerMessage.removeAttribute('hidden');
+
+    //create an array here of 50 at most random numbers between 0 and the length of the peers array
+    //only render the peers that correspond to those locations in the array and change the wording to a random sampling of peers
 
     for (let peer in peers){
         peerElement.innerHTML = `<div role="button" onclick="apiCall('${peers[peer]}')">${peers[peer]}</div>`;
