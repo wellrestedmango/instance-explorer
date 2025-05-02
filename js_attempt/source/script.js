@@ -86,10 +86,13 @@ function createPeerView(peers){
 
     //create an array here of 50 at most random numbers between 0 and the length of the peers array
     //only render the peers that correspond to those locations in the array and change the wording to a random sampling of peers
-
+    let i = 0;
     for (let peer in peers){
-        peerElement.innerHTML = `<div role="button" onclick="apiCall('${peers[peer]}')">${peers[peer]}</div>`;
-        peerHolder.appendChild(peerElement.cloneNode(true));
+        if (i < 75){
+            peerElement.innerHTML = `<div role="button" onclick="apiCall('${peers[peer]}')">${peers[peer]}</div>`;
+            peerHolder.appendChild(peerElement.cloneNode(true));
+        }
+        i += 1;
     }
 }
 
